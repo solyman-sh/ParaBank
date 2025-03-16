@@ -1,0 +1,13 @@
+{
+    "Fname":"Lorem ",
+    "Lname": "Ipsum",
+    "Address": "Abc, 123, xyz",
+    "City": "England",
+    "State": "Nothern Part",
+    "ZipCode": "020295",
+    "Phone": "9996874631",
+    "SSN": "6296",
+    "UserName": "akash",
+    "Password": "akash123",
+    "RePass": "akash123"
+}
