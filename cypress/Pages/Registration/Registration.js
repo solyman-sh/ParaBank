@@ -51,9 +51,14 @@ class Registration {
     cy.get("input[value='Register']").should("be.visible").click();
 
     // Check for username existence
-    cy.get("span[id='customer.username.errors']", { timeout: 10000 }).should('be.visible').then((data) => {
-      if (data.text().includes("This username already exists.")) {
-        cy.log("Username already exists, please choose a different one");
+    cy.get("body").then(($body) => {
+      if ($body.find("span[id='customer.username.errors']").length > 0) {
+        cy.get("span[id='customer.username.errors']").then(($error) => {
+          if ($error.text().includes("This username already exists.")) {
+            cy.log("Username already exists, please choose a different one");
+            cy.get(".title").should("be.visible");
+          }
+        });
       } else {
         cy.wait(3000);
         cy.get(".title").should("be.visible");
